@@ -5,8 +5,16 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+echo 'Installing necessary dependencies.'
+apt install gpg
 cd /bin
+echo 'Making directory OverkillPrivacy in /bin'
 mkdir OverkillPrivacy
+echo 'Entering /bin/OverkillPrivacy'
 cd /bin/OverkillPrivacy
-cat > pass.txt
+echo 'Creating pass.txt'
+touch pass.txt
+echo 'Adding nullID to pass file.'
 echo "nullId" >> pass.txt
+echo 'Installation finished!'
+echo 'Starting OVERKILL PRIVACY'
