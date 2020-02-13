@@ -18,3 +18,4 @@ echo 'Adding nullID to pass file.'
 echo "nullId" >> pass.txt
 echo 'Installation finished!'
 echo 'Starting OVERKILL PRIVACY'
+./setup2
