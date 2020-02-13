@@ -26,7 +26,7 @@ while (breakLoop == False):
     elif passwordMenu == "d":
       deletePassword = input("Choose password to be deleted:\n" + password)
     elif passwordMenu == "g":
-      getPassword = input("Enter password for key generation; password will NOT be added to list.")
+      getPassword = input("Enter password for key generation testing; password will NOT be added to list.")
       print(hashlib.sha3_512(getPassword.encode("utf-8")).hexdigest())
   else:
     print("Please select a listed choice.")
