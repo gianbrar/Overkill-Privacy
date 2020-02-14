@@ -1,13 +1,19 @@
 import hashlib
 import os
 
-os.system("")
+pwdPath = "/bin/OverkillPrivacy/pwdf.txt"
+pwdFile = open(pwdPath, 'r')
+pwd = pwdFile.read()
+os.system("cd " + pwd)
+os.system("./sudocheck.bash")
 
 breakLoop = False
 passPath = "/bin/OverkillPrivacy/pass.txt"
 passFile = open(passPath, 'r')
 password = passFile.read()
 passWriteFile = open(passPath, 'w')
+storyPath = "/bin/OverkillPrivacy/story.txt"
+
 
 while (breakLoop == False):
   menu = input("OVERKILL PRIVACY MACHINE 1.0\nP: Password menu\nE: Encrypt\nD: Decrypt\nI: Info")
@@ -30,5 +36,15 @@ while (breakLoop == False):
     elif passwordMenu == "g":
       getPassword = input("Enter password for key generation testing; password will NOT be added to list.")
       print(hashlib.sha3_512(getPassword.encode("utf-8")).hexdigest())
+  elif menu == "e":
+    encryptMenu = input("T: Type out story\nG: Encrypt from Google Doc")
+    encryptMenu = encryptMenu.lower()
+    if encryptMenu == "t":
+      encryptName = input("Please give name of story.")
+      encryptNameBool = encryptName.endswith(".txt")
+      if encryptNameBool == True:
+        os.system("vim -c 'startinsert' " + encryptName)
+      else:
+        os.system("vim -c 'startinstert' " + encryptName + ".txt")
   else:
     print("Please select a listed choice.")
