@@ -17,6 +17,13 @@ echo 'Creating pass.txt'
 touch pass.txt
 echo 'Adding nullID to pass file.'
 echo "nullId" >> pass.txt
+echo 'Creating sudocheck.bash'
+touch sudocheck.bash
+echo 'Writing code to sudocheck.bash'
+echo "if [ '$EUID' -ne 0 ]" >> sudocheck.bash
+echo "  then echo 'Please run as root.'" >> sudocheck.bash
+echo "  exit" >> sudocheck.bash
+echo "fi" >> sudocheck.bash
 echo 'Installation finished!'
 echo 'Starting OVERKILL PRIVACY'
 overkillPrivacyVar=true
