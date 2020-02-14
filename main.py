@@ -13,6 +13,9 @@ passFile = open(passPath, 'r')
 password = passFile.read()
 passWriteFile = open(passPath, 'w')
 storyPath = "/bin/OverkillPrivacy/story.txt"
+storyFile = open(storyPath, 'r')
+story = storyFile.read()
+storyWriteFile = open(storyPath, 'w')
 
 
 while (breakLoop == False):
