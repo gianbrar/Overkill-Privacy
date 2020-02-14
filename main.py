@@ -1,6 +1,8 @@
 import hashlib
 import os
 
+os.system("")
+
 breakLoop = False
 passPath = "/bin/OverkillPrivacy/pass.txt"
 passFile = open(passPath, 'r')
