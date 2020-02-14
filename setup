@@ -8,6 +8,7 @@ fi
 newPWD=$PWD
 echo 'Installing necessary dependencies.'
 apt install gpg
+pip3 install pydrive
 cd /bin
 echo 'Making directory OverkillPrivacy in /bin'
 mkdir OverkillPrivacy
