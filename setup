@@ -5,6 +5,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+newPWD=$PWD
 echo 'Installing necessary dependencies.'
 apt install gpg
 cd /bin
@@ -18,4 +19,6 @@ echo 'Adding nullID to pass file.'
 echo "nullId" >> pass.txt
 echo 'Installation finished!'
 echo 'Starting OVERKILL PRIVACY'
-./setup2
+overkillPrivacyVar=true
+cd $newPWD
+python3 main.py
