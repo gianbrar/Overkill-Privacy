@@ -9,6 +9,7 @@ newPWD=$PWD
 echo 'Installing necessary dependencies.'
 apt install gpg
 pip3 install pydrive
+pip3 install emoji
 cd /bin
 echo 'Making directory OverkillPrivacy in /bin'
 mkdir OverkillPrivacy
