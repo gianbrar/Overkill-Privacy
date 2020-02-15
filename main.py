@@ -56,18 +56,12 @@ while (True):
       encryptName = input("Please give name of story.")
       encryptName = encryptName.replace(" ", "")
       encryptNameBool = encryptName.endswith(".txt")
-      if encryptNameBool == True:
-        os.system("vim -c 'startinsert' " + encryptName)
-      else:
-        os.system("vim -c 'startinsert' " + encryptName + ".txt")
+      if encryptNameBool == False:
+        encryptName = encryptName + ".txt"
+      os.system("vim -c 'startinsert' " + encryptName)
+      
     elif encryptMenu == "g":
-      gauth = GoogleAuth()
-      gauth.LocalWebserverAuth()
-      drive = GoogleDrive(gauth)
-      file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
-      selection = input("Please choose Google Doc Name.")
-      file1 = drive.CreateFile({'id': file1['id']})
-      file1.GetContentFile(selection)
+      print("Placeholder")
   elif menu == "x":
     print("Exiting")
     sys.exit()
