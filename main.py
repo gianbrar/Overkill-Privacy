@@ -1,15 +1,23 @@
 import hashlib
 import os
+import sys
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
+from emoji import emojize
+
+os.system("./sudocheck")
+exitTFF = open("overkillPrivacyDD.txt", 'r')
+exitTF = exitTFF.read()
+if exitTF == "exit\n":
+  os.system("rm overkillPrivacyDD.txt")
+  os.system("touch overkillPrivacyDD.txt")
+  sys.exit()
 
 pwdPath = "/bin/OverkillPrivacy/pwdf.txt"
 pwdFile = open(pwdPath, 'r')
 pwd = pwdFile.read()
 os.system("cd " + pwd)
-os.system("./sudocheck")
 
-breakLoop = False
 passPath = "/bin/OverkillPrivacy/pass.txt"
 passFile = open(passPath, 'r')
 password = passFile.read()
@@ -20,8 +28,8 @@ story = storyFile.read()
 storyWriteFile = open(storyPath, 'w')
 
 
-while (breakLoop == False):
-  menu = input("OVERKILL PRIVACY MACHINE 1.0\nP: Password menu\nE: Encrypt\nD: Decrypt\nI: Info\n")
+while (True):
+  menu = input("OVERKILL PRIVACY MACHINE 1.0\nP: Password menu\nE: Encrypt\nD: Decrypt\nI: Info\nX: Exit\n")
   menu = menu.lower()
   if menu == "i":
     print("Programmed by Gian Brar for Trisha Reddy's 14th birthday, OVERKILL PRIVACY MACHINE is for the writer who wishes for others not to view anything they write. It utilizes military grade SHA (Secure Hash Algorithim) encryption with a program that has been proven mathematically impossible to reverse in order to hide your private info from your family.")
@@ -35,7 +43,7 @@ while (breakLoop == False):
       passwordIE = hashlib.sha3_512(passwordI.encode("utf-8")).hexdigest()
       passWriteFile.write(passwordIE)
       passWriteFile.write("\n")
-      print(passwordI + " was ENCRYPTED into password list.")
+      print(emojize(":closed_lock_with_key:") + " " + passwordI + " was ENCRYPTED into password list. " + emojize(":closed_lock_with_key:"))
     elif passwordMenu == "d":
       deletePassword = input("Choose password to be deleted:\n" + password)
     elif passwordMenu == "g":
@@ -46,6 +54,7 @@ while (breakLoop == False):
     encryptMenu = encryptMenu.lower()
     if encryptMenu == "t":
       encryptName = input("Please give name of story.")
+      encryptName = encryptName.replace(" ", "")
       encryptNameBool = encryptName.endswith(".txt")
       if encryptNameBool == True:
         os.system("vim -c 'startinsert' " + encryptName)
@@ -59,5 +68,8 @@ while (breakLoop == False):
       selection = input("Please choose Google Doc Name.")
       file1 = drive.CreateFile({'id': file1['id']})
       file1.GetContentFile(selection)
+  elif menu == "x":
+    print("Exiting")
+    sys.exit()
   else:
     print("Please select a listed choice.")
