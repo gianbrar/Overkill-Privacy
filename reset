@@ -6,4 +6,5 @@ if [ $EUID != 0 ]
 fi
 
 rm -rf /bin/OverkillPrivacy
+rm overkillPrivacyDD.txt
 echo 'OverkillPrivacy files deleted.'
