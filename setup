@@ -10,11 +10,11 @@ echo 'Installing necessary dependencies.'
 apt install gpg
 pip3 install pydrive
 pip3 install emoji
-cd /bin
+cd /usr/bin
 echo 'Making directory OverkillPrivacy in /bin'
 mkdir OverkillPrivacy
 echo 'Entering /bin/OverkillPrivacy'
-cd /bin/OverkillPrivacy
+cd /usr/bin/OverkillPrivacy
 echo 'Creating pass.txt'
 touch pass.txt
 echo 'Adding nullID to pass file.'
@@ -25,6 +25,8 @@ echo 'Adding var newPWD to pwd.txt'
 echo "$newPWD" >> pwdf.txt
 echo 'Creeating story.txt'
 touch story.txt
+echo 'Generating gpg key'
+gpg --gen-key
 echo 'Installation finished!'
 echo 'Starting OVERKILL PRIVACY'
 overkillPrivacyVar=true
