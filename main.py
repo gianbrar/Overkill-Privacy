@@ -13,16 +13,16 @@ if exitTF == "exit\n":
   os.system("touch overkillPrivacyDD.txt")
   sys.exit()
 
-pwdPath = "/bin/OverkillPrivacy/pwdf.txt"
+pwdPath = "/usr/bin/OverkillPrivacy/pwdf.txt"
 pwdFile = open(pwdPath, 'r')
 pwd = pwdFile.read()
 os.system("cd " + pwd)
 
-passPath = "/bin/OverkillPrivacy/pass.txt"
+passPath = "/usr/bin/OverkillPrivacy/pass.txt"
 passFile = open(passPath, 'r')
 password = passFile.read()
 passWriteFile = open(passPath, 'w')
-storyPath = "/bin/OverkillPrivacy/story.txt"
+storyPath = "/usr/bin/OverkillPrivacy/story.txt"
 storyFile = open(storyPath, 'r')
 story = storyFile.read()
 storyWriteFile = open(storyPath, 'w')
