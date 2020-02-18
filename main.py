@@ -1,6 +1,5 @@
 import hashlib
 import os
-import sys
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from emoji import emojize
@@ -9,9 +8,8 @@ os.system("./sudocheck")
 exitTFF = open("overkillPrivacyDD.txt", 'r')
 exitTF = exitTFF.read()
 if exitTF == "exit\n":
-  os.system("rm overkillPrivacyDD.txt")
-  os.system("touch overkillPrivacyDD.txt")
-  sys.exit()
+  os.system("cat /dev/null > overkillPrivacyDD.txt")
+  exit()
 
 pwdPath = "/usr/bin/OverkillPrivacy/pwdf.txt"
 pwdFile = open(pwdPath, 'r')
@@ -64,6 +62,6 @@ while (True):
       print("Placeholder")
   elif menu == "x":
     print("Exiting")
-    sys.exit()
+    exit()
   else:
     print("Please select a listed choice.")
