@@ -5,16 +5,20 @@ if [ $EUID != 0 ]
 	exit
 fi
 
+function y_n {
+	echo 'YES: ENTER'
+	echo 'NO: CTRL+C'
+	read
+}
+
 echo 'Are you sure you would like to delete all data? This process is irreversible.'
-echo 'YES: ENTER'
-echo 'NO: CTRL+C'
-read
+y_n
 echo "Okay, just wanted to make sure. You want to delete everything. You can't undo this. Are you okay? Do you need to lie down? Are you absolutely SURE?"
-echo 'YES: ENTER'
-echo 'NO: CTRL+C'
-read
+y_n
+echo 'Just...one more time. You SUPER DUPER ABSOLUTELY sure?'
+y_n
 echo 'Uh.... okay then!'
-rm -rf /bin/OverkillPrivacy
-echo /dev/null > overkillPrivacyDD.txt
-echo /dev/null > setupFlags.txt
+rm -rf /usr/bin/OverkillPrivacy
+cat /dev/null > overkillPrivacyDD.txt
+cat /dev/null > setupFlags.txt
 echo 'Overkill Privacy reset to default state. Please run setup to begin again.'
