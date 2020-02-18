@@ -2,7 +2,7 @@ import hashlib
 import os
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-from emoji import emojize
+from Crypto.PublicKey import RSA
 
 os.system("./sudocheck")
 exitTFF = open("overkillPrivacyDD.txt", 'r')
@@ -11,15 +11,17 @@ if exitTF == "exit\n":
   os.system("cat /dev/null > overkillPrivacyDD.txt")
   exit()
 
-pwdPath = "/usr/bin/OverkillPrivacy/pwdf.txt"
-pwdFile = open(pwdPath, 'r')
-pwd = pwdFile.read()
-os.system("cd " + pwd)
+setupTPP = "/usr/bin/OverkillPrivacy/setupFlags.txt"
+setupTP = open(setupTPP, 'r')
+setupT = setupTP.read()
+if setupT != "T\n":
+  print("Please run setup first.")
+  exit()
 
 passPath = "/usr/bin/OverkillPrivacy/pass.txt"
 passFile = open(passPath, 'r')
 password = passFile.read()
-passWriteFile = open(passPath, 'w')
+passWriteFile = open(passPath, 'a+')
 storyPath = "/usr/bin/OverkillPrivacy/story.txt"
 storyFile = open(storyPath, 'r')
 story = storyFile.read()
@@ -41,9 +43,14 @@ while (True):
       passwordIE = hashlib.sha3_512(passwordI.encode("utf-8")).hexdigest()
       passWriteFile.write(passwordIE)
       passWriteFile.write("\n")
-      print(emojize(":closed_lock_with_key:") + " " + passwordI + " was ENCRYPTED into password list. " + emojize(":closed_lock_with_key:"))
+      print("🔐 " + passwordI + " was ENCRYPTED into password list. 🔐")
     elif passwordMenu == "d":
-      deletePassword = input("Choose password to be deleted:\n" + password)
+      password = passFile.read()
+      print(password + " is the password")
+      if password == "":
+        print("No passwords to be deleted!")
+      else:
+        deletePassword = input("Choose password to be deleted:\n" + password)
     elif passwordMenu == "g":
       getPassword = input("Enter password for key generation testing; password will NOT be added to list.")
       print(hashlib.sha3_512(getPassword.encode("utf-8")).hexdigest())
