@@ -5,6 +5,16 @@ if [ $EUID != 0 ]
 	exit
 fi
 
+echo 'Are you sure you would like to delete all data? This process is irreversible.'
+echo 'YES: ENTER'
+echo 'NO: CTRL+C'
+read
+echo "Okay, just wanted to make sure. You want to delete everything. You can't undo this. Are you okay? Do you need to lie down? Are you absolutely SURE?"
+echo 'YES: ENTER'
+echo 'NO: CTRL+C'
+read
+echo 'Uh.... okay then!'
 rm -rf /bin/OverkillPrivacy
-rm overkillPrivacyDD.txt
-echo 'OverkillPrivacy files deleted.'
+echo /dev/null > overkillPrivacyDD.txt
+echo /dev/null > setupFlags.txt
+echo 'Overkill Privacy reset to default state. Please run setup to begin again.'
