@@ -29,6 +29,9 @@ echo "$newPWD" > pwdf.txt
 echo 'Creating story.txt'
 touch story.txt
 chmod 666 story.txt
+echo 'Creating RSA.txt'
+touch RSA.txt
+chmod 666 RSA.txt
 echo 'Switching to former working directory'
 cd $newPWD
 echo 'Writing to setupFlags.txt'
