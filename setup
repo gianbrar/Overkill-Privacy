@@ -8,7 +8,6 @@ fi
 newPWD=$PWD
 echo 'Installing necessary dependencies.'
 pip3 install pydrive
-pip3 install emoji
 pip3 install Crypto
 cd /usr/bin
 echo 'Making directory OverkillPrivacy in /bin'
