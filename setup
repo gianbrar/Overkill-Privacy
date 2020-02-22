@@ -7,7 +7,6 @@ fi
 
 newPWD=$PWD
 echo 'Installing necessary dependencies.'
-apt install gpg
 pip3 install pydrive
 pip3 install emoji
 pip3 install Crypto
