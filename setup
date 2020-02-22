@@ -30,6 +30,9 @@ chmod 666 story.txt
 echo 'Creating RSA.txt'
 touch RSA.txt
 chmod 666 RSA.txt
+echo 'Creating key.pem'
+touch RSA.pem
+chmod 666 key.pem
 echo 'Switching to former working directory'
 cd $newPWD
 echo 'Writing to setupFlags.txt'
