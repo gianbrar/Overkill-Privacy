@@ -45,14 +45,14 @@ while (True):
       passWriteFile.write("\n")
       print("🔐 " + passwordI + " was ENCRYPTED into password list. 🔐")
     elif passwordMenu == "d":
+      passFile.seek(0)
       password = passFile.read()
-      print(password + " is the password")
       if password == "":
         print("No passwords to be deleted!")
       else:
         deletePassword = input("Choose password to be deleted:\n" + password)
     elif passwordMenu == "g":
-      getPassword = input("Enter password for key generation testing; password will NOT be added to list.")
+      getPassword = input("Enter password for key generation testing. Password will NOT be added to list.")
       print(hashlib.sha3_512(getPassword.encode("utf-8")).hexdigest())
   elif menu == "e":
     encryptMenu = input("T: Type out story\nG: Encrypt from Google Doc\n")
@@ -62,7 +62,7 @@ while (True):
       encryptName = encryptName.replace(" ", "")
       encryptNameBool = encryptName.endswith(".txt")
       if encryptNameBool == False:
-        encryptName = encryptName + ".txt"
+        encryptName += ".txt"
       os.system("vim -c 'startinsert' " + encryptName)
       
     elif encryptMenu == "g":
