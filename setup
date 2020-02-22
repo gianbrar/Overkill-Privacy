@@ -27,16 +27,34 @@ echo "$newPWD" > pwdf.txt
 echo 'Creating story.txt'
 touch story.txt
 chmod 666 story.txt
-echo 'Creating RSA.txt'
-touch RSA.txt
-chmod 666 RSA.txt
-echo 'Creating key.pem'
-touch RSA.pem
-chmod 666 key.pem
+echo 'Creating pubkey.pem'
+touch pubkey.pem
+chmod 000 pubkey.pem
+echo 'Creating prkey.pem'
+touch prkey.pem
+chmod 000 prkey.pem
 echo 'Switching to former working directory'
 cd $newPWD
 echo 'Writing to setupFlags.txt'
 echo 'T' > setupFlags.txt
+
+python3 - << EOF
+
+from Crypto.PublicKey import RSA
+import os
+
+keyPath = "/usr/bin/OverkillPrivacy/key.pem"
+keyFile = open(keyPath, 'w')
+print("Generating RSA keypair")
+key = RSA.generate(4096)
+print("Creating private key")
+privateKey = key.exportKey("PEM")
+print("Creating public key")
+publicKey = key.publickey().exportKey("PEM")
+
+
+EOF
+
 echo 'Installation finished!'
 echo 'Starting OVERKILL PRIVACY'
 overkillPrivacyVar=true
