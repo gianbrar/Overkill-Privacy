@@ -37,21 +37,28 @@ echo 'Switching to former working directory'
 cd $newPWD
 echo 'Writing to setupFlags.txt'
 echo 'T' > setupFlags.txt
-
+chmod 000 setupFlags.txt
+echo 'EOFing into python3'
 python3 - << EOF
 
 from Crypto.PublicKey import RSA
 import os
 
-keyPath = "/usr/bin/OverkillPrivacy/key.pem"
-keyFile = open(keyPath, 'w')
+pubKeyPath = "/usr/bin/OverkillPrivacy/pubkey.pem"
+pubKeyFile = open(pubKeyPath, 'w')
+privKeyPath = "/usr/bin/OverkillPrivacy/prkey.pem"
+privKeyFile = open(privKeyPath, 'w')
 print("Generating RSA keypair")
 key = RSA.generate(4096)
 print("Creating private key")
 privateKey = key.exportKey("PEM")
+print("Writing private key to prkey.pem")
+privKeyFile.write(privateKey)
 print("Creating public key")
 publicKey = key.publickey().exportKey("PEM")
-
+print("Writing public key to pubkey.pem")
+publicKeyPath.write(publicKey)
+print("Re-entering bash")
 
 EOF
 
